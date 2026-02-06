@@ -1,0 +1,147 @@
+{
+  "design_system": {
+    "theme": "dark",
+    "colors": {
+      "background": {
+        "base": "#030014",
+        "layer_1": "rgba(255, 255, 255, 0.03)",
+        "layer_2": "rgba(255, 255, 255, 0.07)",
+        "overlay": "rgba(3, 0, 20, 0.7)"
+      },
+      "primary": {
+        "main": "#7000FF",
+        "glow": "0 0 20px rgba(112, 0, 255, 0.6)",
+        "hover": "#8533FF"
+      },
+      "secondary": {
+        "main": "#00C2FF",
+        "glow": "0 0 15px rgba(0, 194, 255, 0.5)"
+      },
+      "text": {
+        "primary": "#FFFFFF",
+        "secondary": "#94A3B8",
+        "muted": "#64748B"
+      },
+      "status": {
+        "success": "#10B981",
+        "error": "#EF4444"
+      },
+      "border": {
+        "subtle": "rgba(255, 255, 255, 0.08)",
+        "highlight": "rgba(255, 255, 255, 0.15)"
+      }
+    },
+    "typography": {
+      "font_family": {
+        "headings": "\"Outfit\", sans-serif",
+        "body": "\"Be Vietnam Pro\", sans-serif"
+      },
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-bold tracking-tight",
+        "h2": "text-3xl md:text-4xl font-semibold",
+        "body": "text-base leading-relaxed"
+      }
+    },
+    "spacing": {
+      "container_padding": "p-6 md:p-12",
+      "element_gap": "gap-4 md:gap-6"
+    },
+    "effects": {
+      "glassmorphism": {
+        "base": "backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl",
+        "heavy": "backdrop-blur-2xl bg-black/40 border border-white/5"
+      },
+      "neon_glow": "shadow-[0_0_15px_rgba(112,0,255,0.5)]",
+      "radius": {
+        "card": "rounded-2xl",
+        "button": "rounded-full"
+      }
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "background",
+        "url": "https://images.unsplash.com/photo-1579398707644-ff84b1e6931f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxkZWVwJTIwc3BhY2UlMjBuZWJ1bGElMjBiYWNrZ3JvdW5kJTIwZGFyayUyMHB1cnBsZSUyMGJsdWV8ZW58MHx8fHwxNzcwMzc4OTY3fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Deep space nebula background to be used as a fixed background layer with low opacity behind particles.",
+        "usage": "CSS background-image on the body or a fixed div with z-index -2"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "recommended": ["Plus", "Trash2", "Check", "Sparkles", "Rocket", "Star"]
+    }
+  },
+  "components": [
+    {
+      "name": "StarryBackground",
+      "type": "Background",
+      "description": "Full screen particle system using tsparticles. White glowing stars with random movement.",
+      "specs": {
+        "library": "react-tsparticles",
+        "config": "Standard starry night config with interaction (repulse on hover)."
+      }
+    },
+    {
+      "name": "GlassCard",
+      "type": "Container",
+      "description": "Main container for the Todo List. Uses glassmorphism effect.",
+      "specs": {
+        "classes": "backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-2xl overflow-hidden"
+      }
+    },
+    {
+      "name": "NeonInput",
+      "type": "Form Element",
+      "description": "Input field with a subtle glow on focus.",
+      "specs": {
+        "classes": "bg-black/20 border-white/10 focus:border-purple-500 focus:ring-purple-500/50 rounded-xl text-white placeholder:text-white/30 transition-all duration-300"
+      }
+    },
+    {
+      "name": "TodoItem",
+      "type": "List Item",
+      "description": "AnimatePresence item. Slides in from bottom. Swipe/Click to delete/complete.",
+      "specs": {
+        "animation": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: -20 }}",
+        "classes": "group flex items-center justify-between p-4 mb-3 bg-white/5 hover:bg-white/10 border border-white/5 rounded-xl transition-all"
+      }
+    }
+  ],
+  "layout_strategy": {
+    "type": "Centered Single Column",
+    "structure": "Main container centered on screen (max-w-2xl). Header with large typography. Input section sticky or top. List scrollable within glass container.",
+    "responsive": "Full width on mobile with p-4. Centered card on desktop."
+  },
+  "motion_guidelines": {
+    "library": "framer-motion",
+    "principles": [
+      "Staggered entrance for list items.",
+      "Smooth spring animations for interactions.",
+      "Micro-interactions on buttons (scale on tap).",
+      "No 'transition: all' - animate specific properties."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Initialize a Vite + React + TypeScript project.",
+    "Install 'framer-motion', 'lucide-react', 'clsx', 'tailwind-merge', 'react-tsparticles', 'tsparticles-slim'.",
+    "Configure Tailwind with the custom colors and fonts (Outfit, Be Vietnam Pro).",
+    "Create the 'StarryBackground' component first to set the mood.",
+    "Build the 'TodoApp' inside a 'GlassCard' centered on the screen.",
+    "Ensure the background image is loaded with 'object-cover' and low opacity (30-40%) to blend with the black background.",
+    "Use 'AnimatePresence' for the Todo List additions and removals.",
+    "Add 'data-testid' to all interactive elements (input, add-button, delete-button, checkbox)."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: 'transition: all'. This results in breaking transforms.",
+    "You MUST NOT center align the app container globally (body { text-align: center }).",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations.",
+    "NEVER use AI assistant Emoji characters for icons.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle grain textures or noise overlays are encouraged if possible."
+  ]
+}
