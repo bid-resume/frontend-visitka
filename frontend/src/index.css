@@ -3,25 +3,6 @@
 @theme {
   --font-outfit: "Outfit", sans-serif;
   --font-vietnam: "Be Vietnam Pro", sans-serif;
-  
-  --color-space-base: #030014;
-  --color-space-layer1: rgba(255, 255, 255, 0.03);
-  --color-space-layer2: rgba(255, 255, 255, 0.07);
-  --color-space-overlay: rgba(3, 0, 20, 0.7);
-  
-  --color-primary: #7000FF;
-  --color-primary-hover: #8533FF;
-  --color-secondary: #00C2FF;
-  
-  --color-success: #10B981;
-  --color-error: #EF4444;
-  
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
-  
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-highlight: rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -36,18 +17,18 @@ html, body, #root {
 }
 
 body {
-  font-family: var(--font-vietnam);
-  background-color: var(--color-space-base);
-  color: var(--color-text-primary);
+  font-family: "Be Vietnam Pro", sans-serif;
+  background-color: #050510;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
 .font-outfit {
-  font-family: var(--font-outfit);
+  font-family: "Outfit", sans-serif;
 }
 
 .font-vietnam {
-  font-family: var(--font-vietnam);
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 
 /* Custom scrollbar */
@@ -56,62 +37,148 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: linear-gradient(180deg, #7B68EE, #4c1d95);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-hover);
+  background: linear-gradient(180deg, #8B78EE, #5c2da5);
 }
 
 /* Selection */
 ::selection {
-  background: var(--color-primary);
+  background: #7B68EE;
   color: white;
 }
 
-/* Glass effect utility */
-.glass {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Blob animations */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0);
 }
 
-.glass-heavy {
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.blob-1 {
+  animation: blob1 25s ease-in-out infinite;
 }
 
-/* Neon glow */
-.neon-glow {
-  box-shadow: 0 0 20px rgba(112, 0, 255, 0.5);
+.blob-2 {
+  animation: blob2 30s ease-in-out infinite;
 }
 
-.neon-glow-cyan {
-  box-shadow: 0 0 15px rgba(0, 194, 255, 0.5);
+.blob-3 {
+  animation: blob3 28s ease-in-out infinite;
+}
+
+.blob-4 {
+  animation: blob4 22s ease-in-out infinite;
+}
+
+.blob-5 {
+  animation: blob5 26s ease-in-out infinite;
+}
+
+.blob-6 {
+  animation: blob6 20s ease-in-out infinite;
+}
+
+.blob-7 {
+  animation: blob7 24s ease-in-out infinite;
+}
+
+@keyframes blob1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(10%, 15%) scale(1.1);
+  }
+  50% {
+    transform: translate(5%, 25%) scale(0.95);
+  }
+  75% {
+    transform: translate(-5%, 10%) scale(1.05);
+  }
+}
+
+@keyframes blob2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-15%, 10%) scale(1.05);
+  }
+  50% {
+    transform: translate(-10%, 20%) scale(1.1);
+  }
+  75% {
+    transform: translate(5%, 5%) scale(0.95);
+  }
+}
+
+@keyframes blob3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(15%, -10%) scale(0.95);
+  }
+  50% {
+    transform: translate(20%, 5%) scale(1.1);
+  }
+  75% {
+    transform: translate(5%, -5%) scale(1.05);
+  }
+}
+
+@keyframes blob4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20%, 15%) scale(1.15);
+  }
+  66% {
+    transform: translate(10%, -10%) scale(0.9);
+  }
+}
+
+@keyframes blob5 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-10%, -15%) scale(1.1);
+  }
+  66% {
+    transform: translate(-20%, 5%) scale(0.95);
+  }
+}
+
+@keyframes blob6 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(30%, -20%) scale(1.2) rotate(180deg);
+  }
+}
+
+@keyframes blob7 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-25%, 15%) scale(1.15);
+  }
 }
 
 /* Input focus glow */
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(112, 0, 255, 0.3), 0 0 20px rgba(112, 0, 255, 0.2);
-}
-
-/* Checked state animation */
-@keyframes checkmark {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.animate-checkmark {
-  animation: checkmark 0.3s ease-out forwards;
 }
